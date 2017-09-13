@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Practice</title>
+    <meta name="ROBOTS" content="NOINDEX, NOFOLLOW" />
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Weber News</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+          <ul class="nav navbar-nav navbar-right">
+            <li><a id="active" href="#">News Feeds</a></li>
+            <li><a href="favorites.html">Favorites</a></li>
+            <li><a href="about.html">About</a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+
+  	<!-- HTML for SEARCH BAR -->
+    <form class="navbar-form searchForm">
+      <select id="userSelections" class="searchBar" name="select1" onmousedown="if(this.options.length>4){this.size=4;}"  onchange='this.size=0;' onblur="this.size=0;">
+        <option value="none">Select News Source</option>
+        <option value="abc-news-au">ABC News</option>
+        <option value="associated-press">Associated Press</option>
+        <option value="bbc-news">BBC News</option>
+        <option value="bbc-sport">BBC Sport</option>
+        <option value="bild">Bild</option>
+        <option value="bloomberg">Bloomberg</option>
+        <option value="breitbart-news">Breitbart News</option>
+        <option value="business-insider">Business Insider</option>
+        <option value="buzzfeed">Buzzfeed</option>
+        <option value="cnbc">CNBC</option>
+        <option value="cnn">CNN</option>
+        <option value="daily-mail">Daily Mail</option>
+        <option value="engadget">Engadget</option>
+        <option value="entertainment-weekly">Entertainment Weekly</option>
+        <option value="espn">ESPN</option>
+        <option value="espn-cric-info">ESPN Cric</option>
+        <option value="financial-times">Financial Times</option>
+        <option value="focus">Focus</option>
+        <option value="fortune">Fortune</option>
+        <option value="four-four-two">FourFourTwo</option>
+        <option value="Fox Sports">fox-sports</option>
+        <option value="google-news">Google News</option>
+        <option value="hacker-news">Hacker News</option>
+        <option value="ign">IGN</option>
+        <option value="independent">Independent</option>
+        <option value="mashable">Mashable</option>
+        <option value="metro">Metro</option>
+        <option value="mtv-news">MTV News</option>
+        <option value="national-geographic">National Geographic</option>
+        <option value="new-scientist">New Scientist</option>
+        <option value="newsweek">Newsweek</option>
+        <option value="new-york-magazine">New York Magazine</option>
+        <option value="nfl-news">NFL News</option>
+        <option value="reddit-r-all">Reddit /r/all</option>
+        <option value="techcrunch">TechCrunch</option>
+        <option value="techradar">TechRadar</option>
+        <option value="the-new-york-times">The New York Times</option>
+        <option value="the-wall-street-journal">The Wall Street Journal</option>
+        <option value="the-washington-post">The Washington Post</option>
+        <option value="time">Time</option>
+        <option value="usa-today">USA Today</option>
+        <option value="time">Time</option>
+      </select>
+      <!--<button type="button" onclick="makeRequest()">Search</button>-->
+      <button id="searchBtn" type="button">Search</button>
+    </form>
+    <div>
+      <h1>News Feeds</h1>
+
+      <!--
+      <table id="dataTable" class="table table-striped">
+        <thead>
+          <tr id="myRow">
+            <td>Title</td>
+            <td>Description</td>
+            <td>Author/Url</td>
+            <td>Image Url</td>
+          </tr>
+        </thead>
+
+        <tbody id="dataBody">
+
+        </tbody>
+      </table>
+      -->
+
+
+      <div id="articlesContainer" class="container">
+        <ul id="cardContainer" onclick="theFunction(event)">
+
+        </ul>
+      </div>
+
+      <!-- Modal -->
+      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+            </div>
+            <div class="modal-body">
+              ...
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+  	</div>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="main.js"></script>
+    <!--<script src="scrap.js"></script>-->
+  </body>
+</html>
